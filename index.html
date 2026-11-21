@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoboFriend: Autonomiczny Robot i Wsparcie Seniora</title>
+<meta name="description" content="RoboFriend to inteligentny Anioł Stróż, który czuwa nad Twoimi bliskimi 24 godziny na dobę. We make your future safe.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: '#FBF7F0',
+          beige: '#F1E9D9',
+          ink: '#2B2418',
+          blue: { DEFAULT: '#2C4C6B', light: '#3E6488' },
+          leaf: '#4B7A56',
+          line: '#E4D9C4'
+        },
+        fontFamily: { display: ['Arimo', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-body bg-cream text-ink antialiased">
+
+<a href="#main" class="skip-link">Przejdź do treści głównej</a>
+
+<!-- NAV -->
+<header class="border-b border-line bg-cream/95 backdrop-blur sticky top-0 z-40">
+  <nav class="max-w-7xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-6" aria-label="Nawigacja główna">
+    <a href="#main" class="flex-shrink-0 flex items-center gap-2.5">
+      <img src="media/RoboFriendsTech-logo-krzywe.svg" alt="" class="h-10 w-auto">
+      <span class="font-display text-lg font-extrabold text-ink">RoboFriend</span>
+    </a>
+    <a href="#zarezerwuj" class="btn-solid text-sm flex-shrink-0">Zarezerwuj</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-5 md:px-8 pt-12 md:pt-16 pb-12">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+      <div>
+        <p class="uppercase tracking-[0.2em] text-xs font-bold text-leaf mb-5">Technologia w służbie najbliższym</p>
+        <h1 class="font-display text-4xl sm:text-5xl leading-[1.1] font-extrabold">
+          We make your <span class="text-blue">future safe</span>
+        </h1>
+        <p class="mt-6 text-lg text-ink/70 max-w-md leading-relaxed">
+          RoboFriend to inteligentny robot towarzysząco-wspierający, który jest i czuwa w tle przez 24h.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#zarezerwuj" class="btn-solid">Zarezerwuj Swojego RoboFriend</a>
+          <a href="#o-projekcie" class="btn-outline">Poznaj projekt</a>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-2">
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Czuwa 24/7</span>
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Bez noszenia urządzeń</span>
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gotowy prototyp w testach</span>
+        </div>
+      </div>
+      <div class="hero-clean-photo aspect-[4/3]">
+        <img src="media/Z1-hero-kadr-z-filmu.jpg" alt="Dłoń seniorki głaszcząca RoboFriend: pluszowego robota w kształcie psa z ekranem Robo Friends Tech" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-beige border-y border-ink/10">
+    <p class="max-w-7xl mx-auto px-5 md:px-8 py-4 text-sm text-ink/70 text-center leading-relaxed">
+      <strong class="text-ink">STATUS PROJEKTU:</strong> Gotowy prototyp w testach z użytkownikami.
+    </p>
+  </div>
+
+  <!-- TAB BAR: koła z ikonami (te same co na kafelkach strony głównej) — ukryty na "Strona główna", bo ta zakładka ma już własne karty nawigacyjne do tych samych sekcji -->
+  <nav id="tab-bar-nav" class="sticky top-16 z-30 bg-cream/95 backdrop-blur border-b border-line" aria-label="Nawigacja po sekcjach">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 flex gap-1 overflow-x-auto tab-bar-scroll py-2" role="tablist">
+      <a href="#glowna" class="tab-btn active" role="tab" aria-selected="true">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7M5 9.5V20h5v-6h4v6h5V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>Strona główna</span>
+      </a>
+      <a href="#o-projekcie" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon is-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+        <span>O Projekcie</span>
+      </a>
+      <a href="#technologia" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19.07 4.93l-2.12 2.12M7.05 16.95l-2.12 2.12M19.07 19.07l-2.12-2.12M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span>Technologia</span>
+      </a>
+      <a href="#partnerzy" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span>Partnerzy</span>
+      </a>
+      <a href="#nowosci" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon is-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span>Nowości</span>
+      </a>
+      <a href="#zespol" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span>Zespół</span>
+      </a>
+      <a href="#faq" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon is-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r=".9" fill="currentColor"/></svg></span>
+        <span>FAQ</span>
+      </a>
+      <a href="#inwestorzy" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 5l-5 5-4-3-6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>Inwestycje</span>
+      </a>
+      <a href="#sponsorzy" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span>Sponsorzy</span>
+      </a>
+      <a href="#zarezerwuj" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon is-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+        <span>Zarezerwuj</span>
+      </a>
+      <a href="#kontakt" class="tab-btn" role="tab" aria-selected="false">
+        <span class="tab-btn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6.5L12 13l8.5-6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>Kontakt</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- TREŚĆ SEKCJI -->
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20">
+
+    <!-- STRONA GŁÓWNA -->
+    <section id="glowna" class="tab-panel" role="tabpanel">
+      <p class="uppercase tracking-[0.2em] text-xs font-bold text-leaf mb-4">Technologia w służbie najbliższym</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Poznaj RoboFriend</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Wybierz sekcję poniżej, aby dowiedzieć się więcej o projekcie, technologii i sposobach zaangażowania się.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <a href="#o-projekcie" class="icon-card block">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-1">O Projekcie</p>
+          <p class="text-sm text-ink/60">Wyzwanie, z którym się mierzymy: niezależność bez strachu.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#technologia" class="icon-card block">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19.07 4.93l-2.12 2.12M7.05 16.95l-2.12 2.12M19.07 19.07l-2.12-2.12M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Technologia</p>
+          <p class="text-sm text-ink/60">Ekosystem czujników i oprogramowania, niewidoczny dla użytkownika.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#partnerzy" class="icon-card block">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Partnerzy</p>
+          <p class="text-sm text-ink/60">Z Fundacją Gerio budujemy bezpieczną Silver Economy.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#zespol" class="icon-card block">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Zespół</p>
+          <p class="text-sm text-ink/60">Poznaj ludzi, którzy budują RoboFriend.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#faq" class="icon-card block">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r=".9" fill="currentColor"/></svg></span>
+          <p class="font-display font-bold mb-1">FAQ</p>
+          <p class="text-sm text-ink/60">Odpowiedzi na najczęstsze pytania o RoboFriend.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#inwestorzy" class="icon-card block">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 5l-5 5-4-3-6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Inwestycje</p>
+          <p class="text-sm text-ink/60">Zbudujmy razem polski AgingTech. Informacje dla inwestorów.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#sponsorzy" class="icon-card block">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Sponsorzy</p>
+          <p class="text-sm text-ink/60">Firma z sektora opieki? Zostań partnerem RoboFriend.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#zarezerwuj" class="icon-card block">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Zarezerwuj</p>
+          <p class="text-sm text-ink/60">Chcesz być pierwszy? Zgłoś zainteresowanie RoboFriend.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+        <a href="#nowosci" class="icon-card block">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-1">Nowości</p>
+          <p class="text-sm text-ink/60">Co słychać przy budowie RoboFriend: prace, testy, wydarzenia.</p>
+          <span class="icon-card-link">Czytaj więcej →</span>
+        </a>
+      </div>
+
+      <!-- CO NOWEGO: 3 najnowsze wpisy (te same co w zakładce Nowości) -->
+      <div class="mt-16 border-t border-line pt-10">
+        <div class="flex flex-wrap items-end justify-between gap-3 mb-8">
+          <div>
+            <p class="uppercase tracking-[0.2em] text-xs font-bold text-leaf mb-2">Nowości</p>
+            <h3 class="font-display text-2xl md:text-3xl font-extrabold">Co nowego</h3>
+          </div>
+          <a href="#nowosci" class="icon-card-link mt-0">Wszystkie wpisy →</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <a href="#artykul-testy" class="news-tile">
+            <img src="media/Z1-hero-kadr-z-filmu.jpg" alt="" loading="lazy">
+            <div class="news-tile-body">
+              <p class="news-meta">Wkrótce · Testy</p>
+              <p class="font-display font-bold">Startujemy z testami z użytkownikami</p>
+            </div>
+          </a>
+          <a href="#artykul-synergy-award" class="news-tile">
+            <img src="media/Z22-aktualnosci-synergy-award.jpg" alt="" loading="lazy">
+            <div class="news-tile-body">
+              <p class="news-meta"><time datetime="2026-10-28">28.10.2026</time> · Wydarzenia</p>
+              <p class="font-display font-bold">Synergy Award dla projektu CARE 365</p>
+            </div>
+          </a>
+          <a href="#artykul-made-in-wroclaw" class="news-tile">
+            <img class="object-[center_70%]" src="media/Z21-aktualnosci-made-in-wroclaw.jpg" alt="" loading="lazy">
+            <div class="news-tile-body">
+              <p class="news-meta"><time datetime="2026-10-28">28.10.2026</time> · Wydarzenia</p>
+              <p class="font-display font-bold">RoboFriend zadebiutował na Made in Wrocław</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- O PROJEKCIE -->
+    <section id="o-projekcie" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">O Projekcie</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Wyzwanie, z którym się mierzymy: <strong class="text-ink">niezależność bez strachu.</strong></p>
+
+      <div class="space-y-5 text-lg leading-relaxed text-ink/75">
+        <p>Każdego dnia miliony seniorów na całym świecie stawiają czoła cichemu wrogowi, który odbiera im radość i swobodę życia we własnym domu. To nie jest choroba ani wiek. Strach przed Upadkiem, Strach o nagłe Pogorszenie Stanu Zdrowia, Strach o Izolację i Samotność, Strach przed Technologią, Wstyd przed proszeniem o pomoc.</p>
+        <p>Ten paraliżujący lęk sprawia, że codzienne, proste czynności, jak samodzielna kąpiel, stają się źródłem ogromnego stresu. Seniorzy zaczynają ograniczać swoją aktywność, obawiając się, że w razie wypadku nikt nie znajdzie ich przez wiele godzin.</p>
+        <p>Istniejące rozwiązania, takie jak opaski alarmowe, często zawodzą w kluczowych momentach. Trzeba o nich pamiętać, regularnie je ładować, a w chwili kryzysu trafienie w mały przycisk może być niemożliwe. Co więcej, wielu seniorów nie chce ich nosić, bo czują się stygmatyzowani, lub boją się wezwać pomoc z obawy przed fałszywym alarmem.</p>
+        <p class="font-semibold text-ink border-l-2 border-leaf pl-4">My wierzymy w inne podejście. Bezpieczeństwo nie powinno być kolejnym obowiązkiem.</p>
+        <p>Dlatego stworzyliśmy RoboFriend. To nie jest kolejne akcesorium, które trzeba nosić i pilnować. To w pełni niezależny, autonomiczny i inteligentny robot w przyjemnej i miękkiej formie, który po prostu jest i czuwa w tle, całą dobę. Daje poczucie, że pomoc jest zawsze blisko, nawet gdy my jesteśmy daleko, nie odbierając przy tym seniorowi godności i poczucia normalności. Świadomość, że można się do kogoś odezwać i porozmawiać sprawia, że samotność już tak nie doskwiera. Rodzina też ma pewność, że fałszywe alarmy i nagłe sytuacje są pod kontrolą.</p>
+        <p>Dane demograficzne dla Polski i Europy są jednoznaczne – społeczeństwo się starzeje, a wyzwanie zapewnienia bezpiecznej jesieni życia naszym bliskim rośnie z roku na rok. Nadszedł czas na technologię, która naprawdę rozumie człowieka.</p>
+      </div>
+
+      <figure class="mt-12 split-photo aspect-[16/9]">
+        <img src="media/Z2-kafelek-o-projekcie.jpg" alt="Stoisko RoboFriend urządzone jak salon seniorki, z robotem przy fotelu i ekranem prezentacji" loading="lazy">
+      </figure>
+      <p class="mt-3 text-sm text-ink/50">Stoisko RoboFriend na targach Made in Wrocław 2026, urządzone jak salon polskiej seniorki</p>
+
+      <!-- DEMOGRAFIA (wg makiety: 6 liczb + źródła) -->
+      <div class="mt-16 border-t border-line pt-10">
+        <h3 class="font-display text-xl md:text-2xl font-bold mb-8">Demografia i samotność między wizytami</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+          <div>
+            <p class="text-3xl font-display font-extrabold text-blue">99 mln</p>
+            <p class="mt-2 text-sm text-ink/60">osób 65+ w UE, 22% populacji</p>
+          </div>
+          <div>
+            <p class="text-3xl font-display font-extrabold text-blue">1,5 mln</p>
+            <p class="mt-2 text-sm text-ink/60">brakujących opiekunów i pielęgniarek w Europie</p>
+          </div>
+          <div>
+            <p class="text-3xl font-display font-extrabold text-leaf">83%</p>
+            <p class="mt-2 text-sm text-ink/60">seniorów nie użyło alarmu po upadku w samotności</p>
+          </div>
+          <div>
+            <p class="text-3xl font-display font-extrabold text-blue">1 na 5</p>
+            <p class="mt-2 text-sm text-ink/60">upadków kończy się ponad godziną na podłodze bez pomocy</p>
+          </div>
+          <div>
+            <p class="text-3xl font-display font-extrabold text-blue">1 na 3</p>
+            <p class="mt-2 text-sm text-ink/60">seniorów żyje w izolacji społecznej</p>
+          </div>
+          <div>
+            <p class="text-3xl font-display font-extrabold text-blue">97%</p>
+            <p class="mt-2 text-sm text-ink/60">miejsc w domach opieki zajętych, ponad 20 000 osób w kolejkach do POZ</p>
+          </div>
+        </div>
+        <p class="mt-8 text-xs text-ink/40 leading-relaxed">Źródła: Eurostat, Demography of Europe 2026 · European Ageing Network, Long Term Care 2030 · Zeitschrift für Gerontologie und Geriatrie 2010 · University of Sheffield, The Long Lies Study · WHO Commission on Social Connection 2025 · CRP Wrocław 2026</p>
+      </div>
+
+      <div class="mt-16 border-t border-line pt-10">
+        <h3 class="font-display text-xl font-bold mb-8">Głosy rodzin</h3>
+        <p class="text-sm text-ink/50 mb-8 max-w-xl">Wypowiedzi ilustracyjne, zebrane podczas rozmów i wstępnych ankiet z rodzinami seniorów.</p>
+        <div class="grid md:grid-cols-5 gap-10 md:items-stretch">
+          <figure class="md:col-span-2 split-photo aspect-[4/3] md:aspect-auto md:h-full voices-photo">
+            <img class="object-[center_70%]" src="media/Z21-aktualnosci-made-in-wroclaw.jpg" alt="Seniorzy oglądają RoboFriend na stoisku podczas targów Made in Wrocław" loading="lazy">
+          </figure>
+          <div class="md:col-span-3 grid gap-8">
+            <blockquote>
+              <p class="text-ink/75 leading-relaxed">„Najbardziej boję się dnia, w którym coś się stanie mamie, a ja się o tym nie dowiem od razu. Robot czuwający w tle daje mi nadzieję na spokojniejsze noce."</p>
+              <footer class="mt-4 text-sm font-semibold text-blue">Opiekunka rodzinna</footer>
+            </blockquote>
+            <blockquote>
+              <p class="text-ink/75 leading-relaxed">„Nie chcę nosić opaski, bo czuję się przez nią chora. Coś, co po prostu jest w domu i nie trzeba o nim pamiętać, brzmi dla mnie dużo lepiej."</p>
+              <footer class="mt-4 text-sm font-semibold text-leaf">Senior, uczestnik ankiety</footer>
+            </blockquote>
+            <blockquote>
+              <p class="text-ink/75 leading-relaxed">„Mieszkam za granicą i nie mogę być przy rodzicach codziennie. Coś takiego jak RoboFriend to dla mnie realne wsparcie, nie kolejny gadżet."</p>
+              <footer class="mt-4 text-sm font-semibold text-ink/60">Syn seniora</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <!-- INWESTYCJA W SPOKÓJ (część O Projekcie, wg makiety) -->
+      <div class="mt-16 border-t border-line pt-10">
+        <h3 class="font-display text-xl md:text-2xl font-bold mb-3">Inwestycja w spokój</h3>
+        <p class="text-lg text-ink/70 max-w-2xl mb-8">Inwestycja, która się zwraca.</p>
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <figure class="split-photo aspect-[4/3] order-2 md:order-1">
+            <img src="media/Z1-hero-kadr-z-filmu.jpg" alt="Dłoń seniorki głaszcząca RoboFriend: spokój i bliskość w domu" loading="lazy">
+          </figure>
+          <div class="order-1 md:order-2">
+            <p class="text-lg leading-relaxed text-ink/75 mb-5">Zapewnienie bezpieczeństwa i komfortu bliskim nie musi oznaczać ogromnych, comiesięcznych wydatków. Zobacz, jak koszt RoboFriend wypada w porównaniu z tradycyjnymi formami opieki. Koszty dodatkowych leków i wizyt lekarskich często są konsekwencją późnej reakcji na zdarzenia w domu.</p>
+            <ul class="check-list">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Niższy koszt niż tradycyjne, comiesięczne formy opieki</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Czuwanie 24 godziny na dobę, bez opóźnionej reakcji</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Mniej nagłych wizyt lekarskich dzięki wcześniejszej reakcji</span></li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Godność i niezależność bliskiej osoby zachowane</span></li>
+            </ul>
+            <p class="font-semibold text-ink border-l-2 border-leaf pl-4 mt-6">Już czas połączyć tradycyjne metody z nowoczesną technologią.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIA -->
+    <section id="technologia" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Technologia</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Niewidoczna dla użytkownika, a jednak zaawansowana.</p>
+
+      <p class="text-lg leading-relaxed text-ink/75 mb-10">W Robo Friends Tech wierzymy, że najlepsza technologia to taka, która jest niewidoczna dla użytkownika. RoboFriend został zaprojektowany, aby być intuicyjnym i przyjaznym towarzyszem, ale w jego wnętrzu kryje się zaawansowany ekosystem czujników, procesorów i unikatowego oprogramowania, które pracują razem, by zapewnić bezpieczeństwo i spokój ducha.</p>
+
+      <!-- Kliknięcie w cały kafelek rozwija „Czytaj więcej” (script.js) -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 tech-grid">
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Czujniki</p>
+          <p class="text-sm text-ink/60 tech-desc">Dyskretne i zintegrowane z robotem. Nie wymagają noszenia.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Wykrywanie możliwego upadku i powiadamianie opiekuna</li><li>Czujnik dotyku</li><li>Bezdotykowy odczyt tętna</li></ul>
+              <p>Tętno bez urządzeń do noszenia. RoboFriend odczytuje tętno bezkontaktowo, z wykorzystaniem sygnału Wi-Fi. Nie trzeba pamiętać o zakładaniu i ładowaniu opaski. Odczyty i ich historię można przeglądać w aplikacji, jako element dbania o codzienny dobrostan.</p>
+              <p class="fine">Funkcja odczytu tętna nie jest przeznaczona do celów medycznych, w tym do diagnozowania, leczenia, monitorowania ani zapobiegania chorobom. Służy wyłącznie do celów informacyjnych i ogólnego dobrostanu. W nagłych sytuacjach dzwoń pod numer 112.</p>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M12 8l2.5 6.5L12 13l-2.5 1.5L12 8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Autonomia</p>
+          <p class="text-sm text-ink/60 tech-desc">Robot samodzielnie porusza się i funkcjonuje w mieszkaniu.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Pełna autonomia jazdy po mieszkaniu</li><li>Samodzielne dokowanie w stacji ładowania</li><li>Omijanie przeszkód i reagowanie na zmiany w otoczeniu</li><li>Pokonywanie progów do 3,5 cm</li><li>Reagowanie na zdarzenia i codzienne funkcjonowanie z domownikiem</li></ul>
+              <p>Autonomia jest możliwa dzięki autorskim algorytmom oraz fuzji czujników. Robot łączy aż 3 źródła pozwalające mu na określenie swojej pozycji w otoczeniu. Gdy kończy mu się energia, sam wraca do stacji dokującej.</p>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Oprogramowanie</p>
+          <p class="text-sm text-ink/60 tech-desc">Autorskie oprogramowanie wykorzystujące zaawansowane AI.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Łączenie danych z kamer, czujników i mikrofonów w jeden spójny system</li><li>Rozumienie otoczenia i reagowanie w czasie rzeczywistym</li><li>Kluczowe obliczenia lokalnie w robocie</li></ul>
+              <p>Wszystkie kluczowe obliczenia odbywają się lokalnie w robocie, więc prywatne dane zostają w domu.</p>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Dyskrecja i prywatność</p>
+          <p class="text-sm text-ink/60 tech-desc">Bez stygmatyzacji, bez podglądu.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Obraz z kamery nie opuszcza robota podczas codziennego działania</li><li>Opiekun dostaje wyłącznie powiadomienie</li><li>Co dzieje się w domu, zostaje w domu</li></ul>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 10l5-3v10l-5-3" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Wideorozmowy</p>
+          <p class="text-sm text-ink/60 tech-desc">Bliscy są na wyciągnięcie ręki.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Bez telefonu i bez technicznych barier</li><li>Rozmowę rozpoczyna się głosem</li><li>Połączenie przychodzące wymaga akceptacji</li><li>Kamera nigdy nie włącza się bez wiedzy domownika</li></ul>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v13H8l-4 4V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Konwersacja z AI</p>
+          <p class="text-sm text-ink/60 tech-desc">Gdy potrzebujesz porozmawiać.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Dedykowany model językowy, który sprawnie prowadzi rozmowę z domownikiem</li><li>Rozumie i pamięta kontekst prowadzonych rozmów</li></ul>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Sterowanie głosem</p>
+          <p class="text-sm text-ink/60 tech-desc">Robota można obsługiwać w pełni głosem.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Bez przycisków i aplikacji</li><li>„Zadzwoń do syna”</li><li>„Przyjedź do mnie”</li><li>„Porozmawiajmy”</li></ul>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <span class="icon-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p class="font-display font-bold mb-2">Podświetlanie drogi</p>
+          <p class="text-sm text-ink/60 tech-desc">Bezpieczne nocne wstawanie.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Ciepłe, delikatne światło przy podłodze</li><li>Włącza się, gdy wstajesz w nocy</li><li>Robot czeka w pobliżu sypialni</li></ul>
+            </div>
+          </details>
+        </div>
+        <div class="icon-card tech-card">
+          <p class="soon-badge">W planach</p>
+          <span class="icon-card-icon is-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="11" r="2" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          <p class="font-display font-bold mb-2">Teleporada</p>
+          <p class="text-sm text-ink/60 tech-desc">Wideokonsultacja z lekarzem bez wychodzenia z domu.</p>
+          <details class="more-box">
+            <summary>Czytaj więcej</summary>
+            <div class="more-body">
+              <ul><li>Integracja z teleporadą medyczną (w przygotowaniu)</li><li>Wideokonsultacja z lekarzem zewnętrznego partnera medycznego</li><li>Usługę medyczną zapewnia uprawniony partner</li></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl bg-blue text-cream p-6 md:p-8 font-display text-lg md:text-xl font-semibold leading-snug">
+        Technologia ma pomagać, a nie zastępować człowieka. RoboFriend jest projektowany tak, aby współpracować z opiekunem, wypełniając lukę w czasie, gdy człowieka nie ma na miejscu.
+      </div>
+      <p class="fine mt-6">RoboFriend nie jest wyrobem medycznym i nie służy do diagnozowania ani leczenia. Teleporada będzie usługą uprawnionego partnera medycznego; RoboFriend pełni w niej funkcję komunikatora. W nagłych sytuacjach dzwoń pod numer 112.</p>
+    </section>
+
+    <!-- PARTNERZY -->
+    <section id="partnerzy" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Partnerzy</h2>
+      <p class="text-lg leading-relaxed text-ink/75 max-w-3xl mb-10">W Robo Friends Tech wierzymy, że zaawansowany hardware potrzebuje silnego, biznesowego serca oraz doświadczenia w pracy z osobami wymagającymi wsparcia i troski. Nasze rozwiązanie jest konsultowane i testowane pod okiem specjalistów.</p>
+
+      <div class="grid md:grid-cols-3 gap-5 items-stretch">
+        <a href="https://www.gerio.pl/" target="_blank" rel="noopener noreferrer" class="tier-card partner-card partner-link">
+          <div class="partner-logo">
+            <img src="media/L1-logo-fundacja-gerio.svg" alt="Logo Fundacji Gerio" loading="lazy">
+          </div>
+          <p class="tier-card-title">Fundacja Gerio</p>
+          <p class="text-sm text-ink/60">Organizacja, która zmienia rynek usług opiekuńczych i rehabilitacyjnych w Polsce. RoboFriend wchodzi do jej ekosystemu jako całodobowe, technologiczne wsparcie podopiecznego. Razem tworzymy bezpieczną przyszłość Silver Economy.</p>
+          <span class="icon-card-link mt-auto pt-4">Odwiedź stronę →</span>
+        </a>
+        <a href="https://fundacja-ikhakima.org.pl/" target="_blank" rel="noopener noreferrer" class="tier-card partner-card partner-link">
+          <div class="partner-logo">
+            <img src="media/L2-logo-fundacja-ikhakima.png" alt="Logo Fundacji Ikhakima – Technologia z sercem" loading="lazy">
+          </div>
+          <p class="tier-card-title">Fundacja Ikhakima</p>
+          <p class="text-sm text-ink/60">Partner wspierający nas doświadczeniem w pracy z osobami wymagającymi wsparcia i troski.</p>
+          <span class="icon-card-link mt-auto pt-4">Odwiedź stronę →</span>
+        </a>
+        <a href="#sponsorzy" class="partner-cta">
+          <p class="font-display font-bold text-xl mb-3">Zostań partnerem RoboFriend</p>
+          <p class="text-cream/80 mb-6">Prowadzisz firmę opiekuńczą lub działasz w usługach dla seniorów? Sprawdź, jak możemy współpracować.</p>
+          <span class="partner-cta-btn">Dowiedz się więcej →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- NOWOŚCI -->
+    <section id="nowosci" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Co słychać w RoboFriend</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Na bieżąco pokazujemy prace nad robotem, testy i wydarzenia, w których bierzemy udział.</p>
+
+      <!-- Każda karta prowadzi do podstrony artykułu (sekcje #artykul-… poniżej) -->
+      <div class="space-y-5">
+        <a href="#artykul-testy" class="news-card news-card-link">
+          <figure class="split-photo aspect-[16/10]">
+            <img src="media/Z1-hero-kadr-z-filmu.jpg" alt="Dłoń seniorki głaszcząca robota RoboFriend" loading="lazy">
+          </figure>
+          <div>
+            <p class="news-meta">Wkrótce · Testy</p>
+            <h3 class="font-display text-xl md:text-2xl font-bold mb-3">Startujemy z testami z użytkownikami</h3>
+            <p class="text-ink/70 leading-relaxed">Prototyp RoboFriend trafia do pierwszych testów z seniorami. Wnioski z testów posłużą nam do kolejnych iteracji sprzętu i oprogramowania.</p>
+            <span class="icon-card-link">Czytaj artykuł →</span>
+          </div>
+        </a>
+        <a href="#artykul-synergy-award" class="news-card news-card-link">
+          <figure class="split-photo aspect-[16/10]">
+            <img src="media/Z22-aktualnosci-synergy-award.jpg" alt="Wręczenie nagrody Synergy Award na scenie" loading="lazy">
+          </figure>
+          <div>
+            <p class="news-meta"><time datetime="2026-10-28">28.10.2026</time> · Wydarzenia</p>
+            <h3 class="font-display text-xl md:text-2xl font-bold mb-3">Synergy Award dla projektu CARE 365</h3>
+            <p class="text-ink/70 leading-relaxed">Projekt CARE 365, przygotowany razem z Fundacją Gerio, zdobył Synergy Award w kategorii Biznes x Społeczeństwo.</p>
+            <span class="icon-card-link">Czytaj artykuł →</span>
+          </div>
+        </a>
+        <a href="#artykul-made-in-wroclaw" class="news-card news-card-link">
+          <figure class="split-photo aspect-[16/10]">
+            <img class="object-[center_70%]" src="media/Z21-aktualnosci-made-in-wroclaw.jpg" alt="Seniorzy oglądają RoboFriend na stoisku urządzonym jak domowy salon, Made in Wrocław w Hali Stulecia" loading="lazy">
+          </figure>
+          <div>
+            <p class="news-meta"><time datetime="2026-10-28">28.10.2026</time> · Wydarzenia</p>
+            <h3 class="font-display text-xl md:text-2xl font-bold mb-3">RoboFriend zadebiutował na Made in Wrocław</h3>
+            <p class="text-ink/70 leading-relaxed">W Hali Stulecia pokazaliśmy działający prototyp RoboFriend. Stoisko urządziliśmy jak salon polskiej seniorki, żeby odwiedzający mogli zobaczyć robota w domowym otoczeniu.</p>
+            <span class="icon-card-link">Czytaj artykuł →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ARTYKUŁY (podstrony Nowości) — placeholdery: pełną treść wpisać w miejsce ramki „Treść artykułu” -->
+    <section id="artykul-testy" class="tab-panel article-page" role="tabpanel" data-parent="nowosci" hidden>
+      <a href="#nowosci" class="icon-card-link mt-0 mb-6">← Wszystkie wpisy</a>
+      <p class="news-meta">Wkrótce · Testy</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-6">Startujemy z testami z użytkownikami</h2>
+      <figure class="split-photo aspect-[16/9] mb-8">
+        <img src="media/Z1-hero-kadr-z-filmu.jpg" alt="Dłoń seniorki głaszcząca robota RoboFriend" loading="lazy">
+      </figure>
+      <p class="text-lg leading-relaxed text-ink/80 mb-6">Prototyp RoboFriend trafia do pierwszych testów z seniorami. Wnioski z testów posłużą nam do kolejnych iteracji sprzętu i oprogramowania.</p>
+      <div class="article-placeholder">
+        <p class="font-semibold">[Treść artykułu do uzupełnienia]</p>
+        <p>Data rozpoczęcia testów, gdzie się odbywają, kto bierze udział, co sprawdzamy, pierwsze wnioski. Docelowo zdjęcie z testów z seniorami (Z23).</p>
+      </div>
+    </section>
+
+    <section id="artykul-synergy-award" class="tab-panel article-page" role="tabpanel" data-parent="nowosci" hidden>
+      <a href="#nowosci" class="icon-card-link mt-0 mb-6">← Wszystkie wpisy</a>
+      <p class="news-meta"><time datetime="2026-10-28">28.10.2026</time> · Wydarzenia</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-6">Synergy Award dla projektu CARE 365</h2>
+      <figure class="split-photo aspect-[16/9] mb-8">
+        <img src="media/Z22-aktualnosci-synergy-award.jpg" alt="Wręczenie nagrody Synergy Award na scenie" loading="lazy">
+      </figure>
+      <p class="text-lg leading-relaxed text-ink/80 mb-6">Projekt CARE 365, przygotowany razem z Fundacją Gerio, zdobył Synergy Award w kategorii Biznes x Społeczeństwo.</p>
+      <div class="article-placeholder">
+        <p class="font-semibold">[Treść artykułu do uzupełnienia]</p>
+        <p>Czym jest projekt CARE 365, rola RoboFriend i Fundacji Gerio, kto przyznaje nagrodę, przebieg gali, cytat z zespołu.</p>
+      </div>
+    </section>
+
+    <section id="artykul-made-in-wroclaw" class="tab-panel article-page" role="tabpanel" data-parent="nowosci" hidden>
+      <a href="#nowosci" class="icon-card-link mt-0 mb-6">← Wszystkie wpisy</a>
+      <p class="news-meta"><time datetime="2026-10-28">28.10.2026</time> · Wydarzenia</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-6">RoboFriend zadebiutował na Made in Wrocław</h2>
+      <figure class="split-photo aspect-[16/9] mb-8">
+        <img class="object-[center_70%]" src="media/Z21-aktualnosci-made-in-wroclaw.jpg" alt="Seniorzy oglądają RoboFriend na stoisku urządzonym jak domowy salon, Made in Wrocław w Hali Stulecia" loading="lazy">
+      </figure>
+      <p class="text-lg leading-relaxed text-ink/80 mb-6">W Hali Stulecia pokazaliśmy działający prototyp RoboFriend. Stoisko urządziliśmy jak salon polskiej seniorki, żeby odwiedzający mogli zobaczyć robota w domowym otoczeniu.</p>
+      <div class="article-placeholder">
+        <p class="font-semibold">[Treść artykułu do uzupełnienia]</p>
+        <p>Relacja z targów: reakcje odwiedzających, pokazy na żywo, rozmowy z seniorami i opiekunami, co dalej po premierze. Opcjonalnie galeria zdjęć ze stoiska.</p>
+      </div>
+    </section>
+
+    <!-- ZESPÓŁ -->
+    <section id="zespol" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Zespół</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Ludzie, którzy budują RoboFriend.</p>
+
+      <figure class="split-photo aspect-[16/10] mb-10">
+        <img src="media/Z18-zespol-kadr.jpg" alt="Zespół RoboFriend z robotem na stoisku Made in Wrocław" loading="lazy">
+      </figure>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <div class="spec-card">
+          <img src="media/Z12-krystian-skrzypalik-portret.jpg" loading="lazy" alt="Zdjęcie: Krystian Skrzypalik">
+          <p class="font-display font-bold">Krystian Skrzypalik</p>
+          <p class="text-sm text-ink/50">CEO &amp; Founder</p>
+        </div>
+        <div class="spec-card">
+          <img src="media/Z13-radoslaw-wojcik-portret.jpg" loading="lazy" alt="Zdjęcie: Radek Wójcik">
+          <p class="font-display font-bold">Radek Wójcik</p>
+          <p class="text-sm text-ink/50">Lead Mechanical Engineer</p>
+        </div>
+        <div class="spec-card">
+          <img src="media/Z14-patryk-dudzinski-portret.jpg" loading="lazy" alt="Zdjęcie: Patryk Dudziński">
+          <p class="font-display font-bold">Patryk Dudziński</p>
+          <p class="text-sm text-ink/50">Lead Robotics Software Engineer</p>
+        </div>
+        <div class="spec-card">
+          <img src="media/Z15-oliwier-wozniak-portret.jpg" loading="lazy" alt="Zdjęcie: Oliwier Woźniak">
+          <p class="font-display font-bold">Oliwier Woźniak</p>
+          <p class="text-sm text-ink/50">Electronics and Sensor Integration Engineer</p>
+        </div>
+        <div class="spec-card">
+          <img src="media/Z16-bartosz-bareja-portret.jpg" loading="lazy" alt="Zdjęcie: Bartosz Bareja">
+          <p class="font-display font-bold">Bartosz Bareja</p>
+          <p class="text-sm text-ink/50">Lead AI Engineer</p>
+        </div>
+        <div class="spec-card">
+          <img src="media/Z17-adam-was-portret.jpg" loading="lazy" alt="Zdjęcie: Adam Wąs">
+          <p class="font-display font-bold">Adam Wąs</p>
+          <p class="text-sm text-ink/50">Docking Station Engineer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (treść wg makiety, pogrupowana w kategorie) -->
+    <section id="faq" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-10">Najczęściej zadawane pytania</h2>
+
+      <div id="faq-list">
+        <h3 class="faq-category">Produkt i działanie</h3>
+        <div class="space-y-3">
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czym jest RoboFriend?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">To autonomiczny robot-towarzysz dla seniorów, w formie pluszowego psa. Porusza się samodzielnie po domu, rozmawia, przypomina, łączy z bliskimi i może powiadomić opiekuna o możliwym upadku.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy obsługa jest trudna?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Nie. Robota można obsługiwać w pełni głosem, np. „Zadzwoń do syna” albo „Przyjedź do mnie”. Robot ma w standardzie czytelny ekran dotykowy, na którym odbywają się wideorozmowy z bliskimi.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy potrzebny jest internet?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Tak, do korzystania ze wszystkich funkcji robota potrzebne jest połączenie Wi-Fi. Pracujemy nad dodatkowym modułem GSM, który pozwoli korzystać z robota także bez domowego internetu.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Jak działa w nocy?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Czeka w pobliżu sypialni. Gdy domownik wstaje, włącza ciepłe, delikatne światło przy podłodze.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy poradzi sobie w moim mieszkaniu?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Tak. Samodzielnie porusza się po domu, omija przeszkody, także te, które pojawią się nagle na jego drodze. Pokonuje dywany i progi o wysokości do 3,5 cm. Gdy kończy mu się energia, sam wraca do stacji dokującej.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="faq-category">Bezpieczeństwo i prywatność</h3>
+        <div class="space-y-3">
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy robot nagrywa lub podgląda?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Obraz z kamery jest analizowany w robocie i nie trafia do internetu podczas codziennego działania. Obraz trafia do bliskich tylko podczas wideorozmowy albo w sytuacji, gdy nie ma kontaktu z domownikiem, i tylko jeśli domownik wcześniej się na to zgodził.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Kto decyduje, które funkcje są włączone?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Domownik. Każdą funkcję opcjonalną można włączyć lub wyłączyć w dowolnej chwili, a robot nadal działa.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy RoboFriend wykrywa każdy upadek?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Nie każdy. Robot rozpoznaje sytuacje przypominające upadek i powiadamia wskazanego opiekuna. Może nie zauważyć zdarzenia poza swoim polem widzenia, na przykład w innym pomieszczeniu. Dlatego, gdy przez dłuższy czas nie ma kontaktu z domownikiem, robot sam podjeżdża sprawdzić, czy wszystko w porządku. W nagłych sytuacjach dzwoń pod numer 112.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy to urządzenie medyczne?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Nie. RoboFriend nie jest wyrobem medycznym i nie służy do diagnozowania ani leczenia. Odczyt tętna ma charakter informacyjny i wspiera codzienny dobrostan.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy jest bezpieczny w domu?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Ma miękką, pluszową obudowę i porusza się z niewielką prędkością. Projektujemy go z myślą o spełnieniu norm bezpieczeństwa obowiązujących dla urządzeń domowych.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="faq-category">Rodzina i opiekunowie</h3>
+        <div class="space-y-3">
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Co widzi rodzina w aplikacji?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Powiadomienia i historię zdarzeń, stan robota oraz historię jego pracy. Przez aplikację można też połączyć się z bliską osobą przez wideorozmowę oraz ustawić przypomnienia, np. o codziennych czynnościach czy ważnych wizytach.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy mogę połączyć się z mamą, gdy nie odbiera?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Tak, jeśli wcześniej zgodziła się na tę funkcję. Po kilku nieudanych próbach kontaktu opiekun może skorzystać z podglądu. Podgląd jest zawsze sygnalizowany na robocie.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="faq-category">Zakup i dostępność</h3>
+        <div class="space-y-3">
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Kiedy RoboFriend będzie dostępny?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Trwają testy z użytkownikami i pilotaże. <a href="#zarezerwuj" class="text-blue font-semibold underline">Zapisz się na listę oczekujących</a>, a powiadomimy Cię o terminach sprzedaży.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Ile kosztuje?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Cenę i model zakupu ogłosimy wraz ze startem sprzedaży. Osoby z listy oczekujących dowiedzą się pierwsze.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy przez RoboFrienda będzie można skorzystać z teleporady lekarskiej?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Sprawdzamy taką możliwość z partnerami, którzy świadczą usługi telemedyczne. Robot pełniłby wtedy funkcję komunikatora, czyli umożliwiałby wideorozmowę z lekarzem, a samą usługę medyczną zapewniałby uprawniony partner. O szczegółach poinformujemy, gdy rozwiązanie będzie gotowe. W nagłych sytuacjach dzwoń pod numer 112.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Czy mogę go przetestować?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Prowadzimy pilotaże z partnerami z sektora opieki. Osoby z listy oczekujących informujemy o nowych pilotażach, a firmy opiekuńcze mogą zgłosić chęć testów w <a href="#sponsorzy" class="text-blue font-semibold underline">formularzu partnerskim</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="faq-category">Dla firm</h3>
+        <div class="space-y-3">
+          <div class="faq-item">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 font-display font-bold text-lg" aria-expanded="false">
+              Jak wygląda współpraca z firmą opiekuńczą?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#2C4C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-panel px-6 text-ink/70 leading-relaxed">
+              <p class="pb-5">Każdą współpracę i pilotaż przygotowujemy indywidualnie. Zostaw zgłoszenie w <a href="#sponsorzy" class="text-blue font-semibold underline">formularzu partnerskim</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPONSORZY (zamiast Ankiety) — formularz Tally „Zostań partnerem RoboFriend” -->
+    <section id="sponsorzy" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Zostań partnerem RoboFriend</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Rozwijajmy opiekę domową razem.</p>
+
+      <div class="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
+        <div class="md:col-span-3">
+          <p class="text-lg leading-relaxed text-ink/75 mb-6">Szukamy firm z sektora opieki domowej, które chcą zaoferować podopiecznym nowoczesne wsparcie technologiczne. Zostaw dane, a odezwiemy się w ciągu kilku dni roboczych. Wypełnienie zajmie około 2 minut.</p>
+          <ul class="check-list mb-8">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Nowa usługa i źródło przychodu</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Wsparcie opiekunów między wizytami</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Wyróżnienie technologiczne</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Udział w pilotażach</span></li>
+          </ul>
+          <a href="#formularz-partnerski" class="btn-solid form-jump">Przejdź do formularza ↓</a>
+        </div>
+        <figure class="md:col-span-2 split-photo aspect-[4/3] md:aspect-auto md:h-80">
+          <img src="media/Z22-aktualnosci-synergy-award.jpg" alt="Wręczenie nagrody Synergy Award dla projektu CARE 365" loading="lazy">
+        </figure>
+      </div>
+
+      <!-- FORMULARZ PARTNERSKI (lokalny; pola jak w formularzu Tally „Zostań partnerem RoboFriend” + zakres z makiety) -->
+      <form id="formularz-partnerski" class="site-form mt-12" data-form-name="Zgłoszenie partnerskie RoboFriend" novalidate>
+        <h3 class="font-display text-2xl font-bold mb-1">Formularz partnerski</h3>
+        <p class="text-sm text-ink/50 mb-6"><span class="req">*</span> pole wymagane</p>
+
+        <p class="form-section">Firma</p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="sm:col-span-2">
+            <label for="par-company" class="form-label">Nazwa firmy <span class="req">*</span></label>
+            <input id="par-company" name="Nazwa firmy" type="text" class="contact-field" autocomplete="organization" required>
+          </div>
+          <div>
+            <label for="par-nip" class="form-label">NIP</label>
+            <input id="par-nip" name="NIP" type="text" class="contact-field" inputmode="numeric">
+          </div>
+          <div>
+            <label for="par-www" class="form-label">Strona www</label>
+            <input id="par-www" name="Strona www" type="url" class="contact-field" placeholder="https://">
+          </div>
+          <div>
+            <label for="par-city" class="form-label">Siedziba (miasto)</label>
+            <input id="par-city" name="Siedziba" type="text" class="contact-field">
+          </div>
+          <div>
+            <label for="par-area" class="form-label">Obszar działania (województwa)</label>
+            <input id="par-area" name="Obszar działania" type="text" class="contact-field" placeholder="np. dolnośląskie, opolskie">
+          </div>
+        </div>
+
+        <p class="form-section">Osoba kontaktowa</p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="par-name" class="form-label">Imię i nazwisko <span class="req">*</span></label>
+            <input id="par-name" name="Imię i nazwisko" type="text" class="contact-field" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="par-role" class="form-label">Stanowisko</label>
+            <input id="par-role" name="Stanowisko" type="text" class="contact-field" autocomplete="organization-title">
+          </div>
+          <div>
+            <label for="par-email" class="form-label">E-mail <span class="req">*</span></label>
+            <input id="par-email" name="E-mail" type="email" class="contact-field" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="par-phone" class="form-label">Telefon</label>
+            <input id="par-phone" name="Telefon" type="tel" class="contact-field" autocomplete="tel">
+          </div>
+        </div>
+
+        <p class="form-section">Współpraca</p>
+        <fieldset>
+          <legend class="form-label">Rodzaj usług</legend>
+          <div class="grid sm:grid-cols-2 gap-2 mt-2">
+            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Opieka domowa (prywatna)"> Opieka domowa (prywatna)</label>
+            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Usługi gminne / MOPS"> Usługi gminne / MOPS</label>
+            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Dom opieki / DPS"> Dom opieki / DPS</label>
+            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Rehabilitacja"> Rehabilitacja</label>
+            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Inne"> Inne</label>
+          </div>
+        </fieldset>
+        <div class="grid sm:grid-cols-3 gap-5 mt-5">
+          <div>
+            <label for="par-scale" class="form-label">Skala (liczba podopiecznych)</label>
+            <select id="par-scale" name="Skala" class="contact-field">
+              <option value="">Wybierz…</option>
+              <option>do 20</option>
+              <option>21–100</option>
+              <option>101–500</option>
+              <option>powyżej 500</option>
+            </select>
+          </div>
+          <div>
+            <label for="par-form" class="form-label">Forma współpracy</label>
+            <select id="par-form" name="Forma współpracy" class="contact-field">
+              <option value="">Wybierz…</option>
+              <option>Pilotaż / testy</option>
+              <option>Oferowanie RoboFriend podopiecznym</option>
+              <option>Sponsoring / wsparcie projektu</option>
+              <option>Inna</option>
+            </select>
+          </div>
+          <div>
+            <label for="par-when" class="form-label">Planowany termin</label>
+            <select id="par-when" name="Termin współpracy" class="contact-field">
+              <option value="">Wybierz…</option>
+              <option>Jak najszybciej</option>
+              <option>W ciągu 3 miesięcy</option>
+              <option>W ciągu 6 miesięcy</option>
+              <option>Później / rozpoznanie</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-5">
+          <label for="par-msg" class="form-label">Dodatkowe informacje</label>
+          <textarea id="par-msg" name="Wiadomość" rows="4" class="contact-field"></textarea>
+        </div>
+
+        <label class="form-choice form-consent mt-6">
+          <input type="checkbox" name="Zgoda RODO" value="Wyrażam zgodę" required>
+          <span>Wyrażam zgodę na przetwarzanie podanych danych przez Robo Friends Tech P.S.A. w celu kontaktu w sprawie współpracy. Zgoda jest dobrowolna i mogę ją wycofać w dowolnym momencie. <span class="req">*</span></span>
+        </label>
+
+        <p class="form-error" role="alert" hidden>Uzupełnij wymagane pola oznaczone gwiazdką.</p>
+        <button type="submit" class="btn-solid mt-6">Wyślij zgłoszenie</button>
+        <p class="form-thanks" role="status" hidden>Dziękujemy! Otworzyliśmy Twój program pocztowy z gotowym zgłoszeniem — wystarczy je wysłać. Odezwiemy się w ciągu kilku dni roboczych.</p>
+      </form>
+    </section>
+
+    <!-- ZAREZERWUJ -->
+    <section id="zarezerwuj" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-4">Chcesz być Pierwszy?</h2>
+      <p class="text-lg text-blue font-semibold max-w-2xl mb-10">Zarezerwuj RoboFriend!!</p>
+
+      <div class="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
+        <div class="md:col-span-3">
+          <p class="text-lg leading-relaxed text-ink/75 mb-6">Zapewnij sobie miejsce w pierwszej kolejności do zakupu RoboFriend. Wypełnienie formularza jest <strong class="text-ink">w pełni darmowe i niezobowiązujące</strong>, a gwarantuje Ci:</p>
+          <ul class="check-list mb-8">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75"><strong class="text-ink">Informację o starcie przedsprzedaży</strong> przed innymi</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75"><strong class="text-ink">Dostęp do specjalnej oferty cenowej</strong> dla pierwszych wspierających projekt</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75"><strong class="text-ink">Roczny abonament na pakiet premium</strong> (o wartości ponad 1900 zł) w cenie urządzenia</span></li>
+          </ul>
+          <a href="#formularz-rezerwacji" class="btn-solid form-jump">Przejdź do formularza ↓</a>
+        </div>
+        <figure class="md:col-span-2 split-photo aspect-[4/3] md:aspect-auto md:h-72">
+          <img src="media/Z20-zarezerwuj-robot.jpg" alt="RoboFriend z ekranem Robo Friends Tech – We make your future safe" loading="lazy" class="object-[center_38%]">
+        </figure>
+      </div>
+
+      <!-- FORMULARZ REZERWACJI (lokalny, pola jak w dotychczasowym formularzu Google) -->
+      <form id="formularz-rezerwacji" class="site-form mt-12" data-form-name="Rezerwacja RoboFriend" novalidate>
+        <h3 class="font-display text-2xl font-bold mb-1">Formularz rezerwacji</h3>
+        <p class="text-sm text-ink/50 mb-6"><span class="req">*</span> pole wymagane</p>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="rez-name" class="form-label">Imię i nazwisko <span class="req">*</span></label>
+            <input id="rez-name" name="Imię i nazwisko" type="text" class="contact-field" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="rez-email" class="form-label">Adres e-mail <span class="req">*</span></label>
+            <input id="rez-email" name="E-mail" type="email" class="contact-field" autocomplete="email" required>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="rez-phone" class="form-label">Numer telefonu</label>
+            <p class="form-hint">Podaj numer, jeśli chcesz, abyśmy skontaktowali się z Tobą telefonicznie w sprawie finalizacji zamówienia w przedsprzedaży (w formacie +48 XXX XXX XXX).</p>
+            <input id="rez-phone" name="Telefon" type="tel" class="contact-field" autocomplete="tel" placeholder="+48 XXX XXX XXX">
+          </div>
+        </div>
+
+        <fieldset class="mt-6">
+          <legend class="form-label">W jakim celu rezerwujesz RoboFriend? <span class="req">*</span></legend>
+          <div class="grid gap-2 mt-2">
+            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Kupuję dla siebie (jestem seniorem / seniorką)" required> Kupuję dla siebie (jestem seniorem / seniorką)</label>
+            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Kupuję dla członka rodziny (np. rodzica, dziadka)"> Kupuję dla członka rodziny (np. rodzica, dziadka)</label>
+            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Jestem przedstawicielem instytucji (np. dom opieki, fundacja)"> Jestem przedstawicielem instytucji (np. dom opieki, fundacja)</label>
+            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Inne"> Inne:
+              <input type="text" name="Cel rezerwacji – inne" class="contact-field form-inline-field" aria-label="Inny cel rezerwacji"></label>
+          </div>
+        </fieldset>
+
+        <label class="form-choice form-consent mt-6">
+          <input type="checkbox" name="Zgoda RODO" value="Wyrażam zgodę" required>
+          <span>Wyrażam zgodę na przetwarzanie moich danych osobowych przez Robo Friends Tech P.S.A. w celu otrzymywania informacji handlowych i marketingowych dotyczących premiery produktu RoboFriend, zgodnie z Polityką Prywatności. Zostałem poinformowany, że zgoda jest dobrowolna i mogę ją wycofać w dowolnym momencie. <span class="req">*</span></span>
+        </label>
+
+        <p class="form-error" role="alert" hidden>Uzupełnij wymagane pola oznaczone gwiazdką.</p>
+        <button type="submit" class="btn-solid mt-6">Wyślij rezerwację</button>
+        <p class="form-thanks" role="status" hidden>Dziękujemy za Twój czas! Otworzyliśmy Twój program pocztowy z gotową wiadomością — wystarczy ją wysłać.</p>
+      </form>
+    </section>
+
+    <!-- DLA INWESTORÓW (wg makiety: podstrona /inwestorzy; link w stopce) -->
+    <section id="inwestorzy" class="tab-panel" role="tabpanel" hidden>
+      <p class="news-meta">Dla inwestorów</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Zbudujmy razem polski AgingTech</h2>
+      <p class="text-lg text-ink/70 max-w-3xl mb-10">Jesteśmy otwarci na rozmowy z inwestorami, którzy chcą rozwijać rynek AgingTech i Silver Economy: funduszami VC, aniołami biznesu i partnerami strategicznymi.</p>
+
+      <h3 class="font-display text-xl font-bold mb-6">Dlaczego teraz</h3>
+      <div class="grid sm:grid-cols-3 gap-8 border-t border-line pt-8">
+        <div>
+          <p class="text-3xl font-display font-extrabold text-blue">99 mln</p>
+          <p class="mt-2 text-sm text-ink/60">osób 65+ w UE, 22% populacji</p>
+        </div>
+        <div>
+          <p class="text-3xl font-display font-extrabold text-blue">1,5 mln</p>
+          <p class="mt-2 text-sm text-ink/60">brakujących opiekunów i pielęgniarek w Europie</p>
+        </div>
+        <div>
+          <p class="text-3xl font-display font-extrabold text-leaf">Prototyp</p>
+          <p class="mt-2 text-sm text-ink/60">gotowy i w testach z użytkownikami</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-ink/50">Więcej danych w sekcji <a href="#o-projekcie" class="text-blue font-semibold underline">O Projekcie</a>.</p>
+
+      <div class="grid md:grid-cols-3 gap-5 mt-12">
+        <div class="tier-card">
+          <p class="tier-card-title">Gdzie jesteśmy</p>
+          <ol class="list-decimal pl-5 text-sm text-ink/70 space-y-1.5">
+            <li>Działający prototyp</li>
+            <li>Premiera na Made in Wrocław 28.10.2026</li>
+            <li>Start testów i pilotaży z seniorami</li>
+          </ol>
+          <p class="text-sm text-ink/60 mt-3">Więcej w sekcji <a href="#technologia" class="text-blue font-semibold underline">Technologia</a>.</p>
+        </div>
+        <div class="tier-card">
+          <p class="tier-card-title">Czego szukamy</p>
+          <p class="text-sm text-ink/70">Partnera finansowego i merytorycznego z dostępem do szerokiego sektora w Polsce i UE.</p>
+        </div>
+        <div class="tier-card">
+          <p class="tier-card-title">Co możemy pokazać</p>
+          <ul class="check-list text-sm">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/70">Pokaz prototypu na żywo</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/70">Spotkanie z zespołem</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/70">Szczegółowe materiały po kontakcie</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#kontakt" class="btn-solid">Umów rozmowę</a>
+        <a href="#sponsorzy" class="btn-outline">Zostań partnerem</a>
+      </div>
+    </section>
+
+    <!-- POLITYKA PRYWATNOŚCI (tekst z makiety, zweryfikowany przez kancelarię; pola [UZUPEŁNIĆ…] przed publikacją) -->
+    <section id="polityka-prywatnosci" class="tab-panel legal-doc" role="tabpanel" hidden>
+      <p class="news-meta">Dokumenty</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-8">Polityka prywatności serwisu robofriendstech.pl</h2>
+      <div class="legal-body">
+        <p>Obowiązuje od: <mark class="todo">[data publikacji]</mark></p>
+        <p>W tej polityce wyjaśniamy, jakie dane osobowe zbieramy w serwisie robofriendstech.pl, w jakim celu, jak długo je przechowujemy i jakie prawa Ci przysługują. Polityka dotyczy serwisu internetowego, formularzy kontaktowych i naszych profili w mediach społecznościowych. Nie dotyczy danych przetwarzanych przez robota RoboFriend – zasady te opisuje odrębna dokumentacja dostarczana z produktem.</p>
+        <h3>1.1. Administrator danych</h3>
+        <p>Administratorem Twoich danych osobowych jest <strong>Robo Friends Tech prosta spółka akcyjna</strong> z siedzibą we Wrocławiu, ul. Skarbowców 82D/3A, 53-025 Wrocław, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy dla Wrocławia-Fabrycznej we Wrocławiu, IX Wydział Gospodarczy KRS pod numerem KRS 0001198339, NIP 8993037862, REGON 542936437 (dalej: „Administrator” lub „my”).</p>
+        <p>W sprawach dotyczących danych osobowych możesz się z nami kontaktować:</p>
+        <ul><li>e-mailowo: <mark class="todo">[UZUPEŁNIĆ: dedykowany adres e-mail ds. danych osobowych]</mark></li><li>listownie: na adres siedziby, z dopiskiem „Dane osobowe”</li></ul>
+        <p>Administrator nie wyznaczył inspektora ochrony danych.</p>
+        <h3>1.2. Cele i podstawy prawne przetwarzania</h3>
+        <div class="legal-table-wrap"><table class="legal-table"><tr><th>Kiedy zbieramy dane</th><th>Jakie dane</th><th>Cel</th><th>Podstawa prawna (RODO)</th><th>Jak długo</th></tr><tr><td>Formularz „Zostań partnerem”</td><td>nazwa firmy, NIP, strona www, imię i nazwisko, stanowisko, e-mail, telefon, lokalizacja i skala działalności firmy, treść wiadomości</td><td>odpowiedź na zgłoszenie i rozmowy o współpracy biznesowej</td><td>art. 6 ust. 1 lit. f – prawnie uzasadniony interes: nawiązanie i prowadzenie współpracy</td><td>do zakończenia rozmów, a następnie 24 miesiące; jeśli zawrzemy umowę – przez czas jej trwania i okres przedawnienia roszczeń</td></tr><tr><td>Formularz „Lista oczekujących”</td><td>imię, e-mail, telefon (opcjonalnie), miejscowość (opcjonalnie), odpowiedzi w formularzu</td><td>informowanie o dostępności RoboFrienda, terminach sprzedaży i pilotażach</td><td>art. 6 ust. 1 lit. a – zgoda</td><td>do wycofania zgody lub do zakończenia przedsprzedaży, nie dłużej niż 24 miesiące</td></tr><tr><td>Formularz dla inwestorów</td><td>imię i nazwisko, organizacja, typ inwestora, e-mail, wielkość inwestycji (opcjonalnie), treść wiadomości</td><td>odpowiedź na zapytanie i rozmowy inwestycyjne</td><td>art. 6 ust. 1 lit. f – prawnie uzasadniony interes: pozyskanie finansowania</td><td>do zakończenia rozmów, a następnie 24 miesiące</td></tr><tr><td>Kontakt e-mailowy lub telefoniczny</td><td>dane podane w wiadomości</td><td>odpowiedź na wiadomość</td><td>art. 6 ust. 1 lit. f – prawnie uzasadniony interes: komunikacja z osobami, które się z nami kontaktują</td><td>do zakończenia korespondencji, a następnie 24 miesiące</td></tr><tr><td>Newsletter</td><td>e-mail, imię</td><td>wysyłka informacji o produkcie i firmie</td><td>art. 6 ust. 1 lit. a – zgoda</td><td>do wycofania zgody</td></tr><tr><td>Analityka i cookies inne niż niezbędne</td><td>identyfikatory plików cookies, adres IP, dane o urządzeniu i aktywności w serwisie</td><td>statystyki odwiedzin, ulepszanie serwisu</td><td>art. 6 ust. 1 lit. a – zgoda, w związku z art. 399 Prawa komunikacji elektronicznej</td><td>zgodnie z Polityką cookies</td></tr><tr><td>Profile w mediach społecznościowych</td><td>nazwa profilu, komentarze, reakcje, wiadomości</td><td>prowadzenie profili, komunikacja z obserwującymi</td><td>art. 6 ust. 1 lit. f – prawnie uzasadniony interes: promocja marki</td><td>do usunięcia treści lub zgłoszenia sprzeciwu</td></tr><tr><td>Wszystkie powyższe</td><td>dane niezbędne do wykazania okoliczności</td><td>ustalenie, dochodzenie lub obrona roszczeń</td><td>art. 6 ust. 1 lit. f – prawnie uzasadniony interes</td><td>do upływu terminu przedawnienia roszczeń</td></tr></table></div>
+        <p>Podanie danych jest dobrowolne. Bez danych oznaczonych w formularzu jako obowiązkowe nie będziemy mogli odpowiedzieć na zgłoszenie.</p>
+        <p>Zgodę możesz wycofać w dowolnym momencie, np. klikając link w wiadomości e-mail, pisząc na <mark class="todo">[UZUPEŁNIĆ: dedykowany adres e-mail ds. danych osobowych]</mark> albo zmieniając ustawienia cookies. Wycofanie zgody nie wpływa na zgodność z prawem przetwarzania, którego dokonano przed jej wycofaniem.</p>
+        <h3>1.3. Odbiorcy danych</h3>
+        <p>Twoje dane mogą otrzymać podmioty, które pomagają nam prowadzić serwis i działalność. Przetwarzają one dane na nasze polecenie, na podstawie umowy powierzenia przetwarzania danych:</p>
+        <ul><li><mark class="todo">[DO AKTUALIZACJI z kancelarią: formularze działają teraz bezpośrednio na stronie (hosting OVH), a nie w Tally]</mark> <strong>Tally BV</strong> (Belgia) – obsługa formularzy; dane formularzy są szyfrowane i przechowywane w Unii Europejskiej (<a href="https://tally.so/help/privacy-policy" target="_blank" rel="noopener">informacja o prywatności Tally</a>, <a href="https://tally.so/help/data-processing-agreement" target="_blank" rel="noopener">umowa powierzenia</a>)</li><li><strong><mark class="todo">[dostawca hostingu strony]</mark></strong> – hosting serwisu</li><li><strong><mark class="todo">[dostawca poczty e-mail]</mark></strong> – obsługa korespondencji</li><li><strong><mark class="todo">[dostawca narzędzia analitycznego]</mark></strong> – statystyki serwisu, wyłącznie po wyrażeniu zgody</li><li><strong><mark class="todo">[dostawca narzędzia do wysyłki e-maili / CRM, jeśli zostanie wdrożony]</mark></strong></li><li>podmioty świadczące nam usługi prawne, księgowe i doradcze – w zakresie niezbędnym do tych usług</li></ul>
+        <p>Dane mogą też otrzymać organy publiczne, jeżeli wymagają tego przepisy prawa.</p>
+        <h3>1.4. Przekazywanie danych poza Europejski Obszar Gospodarczy</h3>
+        <p>Zasadniczo przetwarzamy dane w EOG. Niektórzy dostawcy lub ich podwykonawcy mogą przetwarzać dane poza EOG, np. w USA. Dzieje się to wyłącznie na podstawie mechanizmów z rozdziału V RODO: decyzji Komisji Europejskiej stwierdzającej odpowiedni stopień ochrony (np. EU-US Data Privacy Framework) albo standardowych klauzul umownych zatwierdzonych przez Komisję. Możesz poprosić nas o kopię tych zabezpieczeń.</p>
+        <h3>1.5. Twoje prawa</h3>
+        <p>Masz prawo do:</p>
+        <ul><li>dostępu do swoich danych i otrzymania ich kopii (art. 15 RODO)</li><li>sprostowania danych (art. 16 RODO)</li><li>usunięcia danych (art. 17 RODO)</li><li>ograniczenia przetwarzania (art. 18 RODO)</li><li>przenoszenia danych – gdy przetwarzamy je na podstawie zgody lub umowy (art. 20 RODO)</li><li>sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie (art. 21 RODO); jeśli przetwarzamy dane na potrzeby marketingu bezpośredniego, po Twoim sprzeciwie przestajemy to robić bez wyjątków</li><li>wycofania zgody w dowolnym momencie (art. 7 ust. 3 RODO)</li></ul>
+        <p>Aby skorzystać z tych praw, napisz na <mark class="todo">[UZUPEŁNIĆ: dedykowany adres e-mail ds. danych osobowych]</mark>. Odpowiemy bez zbędnej zwłoki, nie później niż w ciągu miesiąca.</p>
+        <p>Masz też prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, www.uodo.gov.pl), jeśli uznasz, że przetwarzamy Twoje dane niezgodnie z prawem.</p>
+        <h3>1.6. Profile w mediach społecznościowych</h3>
+        <p>Prowadzimy profile w serwisach Facebook i Instagram („Robo Friends Tech”, „robofriendstech”). Przy profilach na Facebooku jesteśmy współadministratorem danych razem z Meta Platforms Ireland Limited w zakresie statystyk profilu. Zasady współadministrowania określa <a href="https://www.facebook.com/legal/terms/page_controller_addendum" target="_blank" rel="noopener">Page Insights Controller Addendum</a>. Zgodnie z nim to Meta odpowiada za udzielanie informacji o przetwarzaniu danych do statystyk i realizację Twoich praw w tym zakresie, a my przekazujemy Meta Twoje żądania, jeśli trafią do nas. Naszą podstawą prawną jest prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO) w postaci prowadzenia profili i promocji marki. W pozostałym zakresie Meta przetwarza Twoje dane jako odrębny administrator, zgodnie z <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">Polityką prywatności Meta</a>, która obejmuje Facebooka i Instagrama.</p>
+        <h3>1.6a. Czy będziemy wysyłać Ci informacje handlowe</h3>
+        <p>Informacje o RoboFriendzie i naszej ofercie wysyłamy e-mailem lub SMS-em tylko wtedy, gdy się na to zgodzisz. Zgodę możesz wycofać w każdej chwili, np. linkiem w stopce wiadomości. Odpowiedź na Twoje zapytanie albo wiadomość w sprawie rozpoczętej przez Ciebie współpracy nie jest informacją handlową.</p>
+        <h3>1.7. Zautomatyzowane decyzje i profilowanie</h3>
+        <p>Nie podejmujemy wobec Ciebie decyzji opartych wyłącznie na zautomatyzowanym przetwarzaniu, w tym profilowaniu, które wywoływałyby skutki prawne lub w podobny sposób istotnie na Ciebie wpływały.</p>
+        <h3>1.8. Bezpieczeństwo danych</h3>
+        <p>Stosujemy środki techniczne i organizacyjne odpowiednie do ryzyka, w tym szyfrowane połączenie z serwisem (HTTPS), ograniczony dostęp do danych i umowy powierzenia z dostawcami.</p>
+        <h3>1.9. Pliki cookies</h3>
+        <p>Zasady korzystania z plików cookies opisuje Polityka cookies (<a href="#polityka-cookies">Polityka cookies</a>). Ustawienia cookies możesz zmienić w każdej chwili, klikając „Ustawienia cookies” w stopce serwisu.</p>
+        <h3>1.10. Zmiany polityki</h3>
+        <p>Politykę aktualizujemy, gdy zmieniają się przepisy, nasze usługi lub narzędzia. Aktualna wersja jest zawsze dostępna na tej stronie, z datą obowiązywania na górze.</p>
+      </div>
+    </section>
+
+    <!-- POLITYKA COOKIES (tekst z makiety) -->
+    <section id="polityka-cookies" class="tab-panel legal-doc" role="tabpanel" hidden>
+      <p class="news-meta">Dokumenty</p>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-8">Polityka cookies serwisu robofriendstech.pl</h2>
+      <div class="legal-body">
+        <p>Obowiązuje od: <mark class="todo">[data publikacji]</mark></p>
+        <h3>2.1. Czym są pliki cookies</h3>
+        <p>Pliki cookies to niewielkie pliki tekstowe zapisywane na Twoim urządzeniu (komputerze, telefonie, tablecie) podczas korzystania z serwisu. Podobnie działają inne technologie, np. pamięć lokalna przeglądarki czy piksele. W tej polityce wszystkie nazywamy „cookies”.</p>
+        <h3>2.2. Zasady stosowania</h3>
+        <p>Zgodnie z art. 399 ustawy Prawo komunikacji elektronicznej zapisujemy cookies na Twoim urządzeniu lub odczytujemy je tylko wtedy, gdy:</p>
+        <ul><li>cookies są niezbędne do działania serwisu, o którego wyświetlenie prosisz – te stosujemy bez zgody, albo</li><li>wyraziłeś zgodę po otrzymaniu jasnej informacji o celu ich użycia – dotyczy to wszystkich pozostałych cookies.</li></ul>
+        <p>Cookies analityczne i marketingowe są domyślnie wyłączone. Włączamy je wyłącznie po Twojej zgodzie wyrażonej w banerze cookies.</p>
+        <h3>2.3. Kategorie cookies</h3>
+        <div class="legal-table-wrap"><table class="legal-table"><tr><th>Kategoria</th><th>Do czego służy</th><th>Czy wymaga zgody</th></tr><tr><td>Niezbędne</td><td>działanie i bezpieczeństwo serwisu, zapamiętanie Twoich wyborów w banerze cookies</td><td>nie</td></tr><tr><td>Analityczne</td><td>anonimowe lub zagregowane statystyki odwiedzin, np. które podstrony są najczęściej czytane</td><td>tak</td></tr><tr><td>Marketingowe</td><td>mierzenie skuteczności kampanii i wyświetlanie reklam w innych serwisach</td><td>tak</td></tr><tr><td>Treści zewnętrzne</td><td>wyświetlanie osadzonych treści, np. filmów lub formularzy zewnętrznych dostawców</td><td><mark class="todo">[do ustalenia po wdrożeniu strony]</mark></td></tr></table></div>
+        <h3>2.4. Lista używanych cookies</h3>
+        <div class="legal-table-wrap"><table class="legal-table"><tr><th>Nazwa</th><th>Dostawca</th><th>Kategoria</th><th>Cel</th><th>Okres przechowywania</th></tr><tr><td><mark class="todo">[nazwa cookie zgody]</mark></td><td>Robo Friends Tech (narzędzie: <mark class="todo">[nazwa CMP]</mark>)</td><td>niezbędne</td><td>zapamiętanie wyborów w banerze</td><td><mark class="todo">[np. 12 miesięcy]</mark></td></tr><tr><td><mark class="todo">[do uzupełnienia]</mark></td><td><mark class="todo">[dostawca analityki]</mark></td><td>analityczne</td><td>statystyki odwiedzin</td><td><mark class="todo">[okres]</mark></td></tr><tr><td><mark class="todo">[do uzupełnienia]</mark></td><td><mark class="todo">[DO AKTUALIZACJI: Tally nie jest już używane]</mark> Tally BV (<a href="https://tally.so/help/cookie-policy" target="_blank" rel="noopener">polityka cookies Tally</a>)</td><td><mark class="todo">[do ustalenia]</mark></td><td>działanie osadzonego formularza</td><td><mark class="todo">[okres]</mark></td></tr></table></div>
+        <p>Listę uzupełniamy po wdrożeniu strony na podstawie skanu cookies (większość narzędzi do zarządzania zgodą generuje ją automatycznie).</p>
+        <h3>2.5. Jak zarządzać zgodą</h3>
+        <p>Swoją decyzję możesz zmienić w każdej chwili, klikając „Ustawienia cookies” w stopce serwisu. Wycofanie zgody jest tak samo proste jak jej wyrażenie i nie wpływa na zgodność z prawem wcześniejszego przetwarzania.</p>
+        <p>Cookies możesz też usunąć lub zablokować w ustawieniach przeglądarki. Zablokowanie cookies niezbędnych może utrudnić korzystanie z serwisu.</p>
+        <h3>2.6. Dane osobowe</h3>
+        <p>Jeśli cookies pozwalają Cię zidentyfikować, są danymi osobowymi. Administratorem jest Robo Friends Tech P.S.A. Szczegóły, w tym Twoje prawa i dane kontaktowe, znajdziesz w Polityce prywatności (<a href="#polityka-prywatnosci">polityka prywatności</a>).</p>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="tab-panel" role="tabpanel" hidden>
+      <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-3">Kontakt</h2>
+      <p class="text-lg text-ink/70 max-w-2xl mb-10">Masz pytania? W razie jakichkolwiek wątpliwości skontaktuj się z nami — chętnie odpowiemy.</p>
+
+      <div class="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
+        <div class="md:col-span-3">
+          <p class="font-display text-xl font-bold">Krystian Skrzypalik</p>
+          <p class="text-ink/50 mb-6">CEO &amp; Founder</p>
+          <p class="flex items-center gap-2 mb-2"><span class="font-semibold text-blue">Mobile:</span> <a href="tel:+48665945049" class="hover:text-leaf">+48 665 945 049</a></p>
+          <p class="flex items-center gap-2"><span class="font-semibold text-blue">E-mail:</span> <a href="mailto:krystian.skrzypalik@robofriendstech.pl" class="hover:text-leaf break-all">krystian.skrzypalik@robofriendstech.pl</a></p>
+
+          <div class="mt-6 pt-6 border-t border-line">
+            <h3 class="font-display text-xl font-bold mb-6">Napisz do nas</h3>
+            <form id="kontakt-form" class="space-y-5">
+              <div>
+                <label for="kontakt-name" class="block text-sm font-semibold text-ink mb-2">Imię i nazwisko</label>
+                <input id="kontakt-name" type="text" name="name" class="contact-field" placeholder="Jan Kowalski">
+              </div>
+              <div>
+                <label for="kontakt-email" class="block text-sm font-semibold text-ink mb-2">E-mail</label>
+                <input id="kontakt-email" type="email" name="email" class="contact-field" placeholder="jan@example.pl">
+              </div>
+              <div>
+                <label for="kontakt-message" class="block text-sm font-semibold text-ink mb-2">Wiadomość</label>
+                <textarea id="kontakt-message" name="message" rows="4" class="contact-field" placeholder="W czym możemy pomóc?"></textarea>
+              </div>
+              <button type="submit" class="btn-solid">Wyślij wiadomość</button>
+            </form>
+          </div>
+        </div>
+        <figure class="md:col-span-2 split-photo aspect-square">
+          <img src="media/Z24-kontakt-salon-stoisko.jpg" alt="Stoisko RoboFriend urządzone jak salon seniorki, z robotem przy stoliku" loading="lazy" class="object-[60%_center]">
+        </figure>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<!-- STOPKA (wg makiety: Robo Friends Tech · Na skróty · Dokumenty + dane rejestrowe; kontakt zachowany) -->
+<footer class="bg-ink text-white/60">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-14">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 pb-10 border-b border-white/10">
+      <div>
+        <p class="footer-heading">Robo Friends Tech</p>
+        <div class="flex items-center gap-2.5 mb-3">
+          <img src="media/RoboFriendsTech-logo-krzywe.svg" alt="" class="h-9 w-auto rounded bg-white/95 p-0.5">
+          <p class="font-display text-lg font-bold text-white">RoboFriend</p>
+        </div>
+        <p class="text-white/80">We make your future safe</p>
+      </div>
+      <nav aria-label="Na skróty">
+        <p class="footer-heading">Na skróty</p>
+        <ul class="footer-links">
+          <li><a href="#o-projekcie">Dla rodzin</a></li>
+          <li><a href="#sponsorzy">Dla partnerów</a></li>
+          <li><a href="#inwestorzy">Dla inwestorów</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Dokumenty">
+        <p class="footer-heading">Dokumenty</p>
+        <ul class="footer-links">
+          <li><a href="#polityka-prywatnosci">Polityka prywatności</a></li>
+          <li><a href="#polityka-cookies">Polityka cookies</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer-heading">Kontakt</p>
+        <div class="text-sm space-y-1 mb-4">
+          <a href="tel:+48665945049" class="block hover:text-white">+48 665 945 049</a>
+          <a href="mailto:krystian.skrzypalik@robofriendstech.pl" class="block hover:text-white break-all">krystian.skrzypalik@robofriendstech.pl</a>
+        </div>
+        <a href="#kontakt" class="btn-solid text-sm whitespace-nowrap">Kontakt</a>
+      </div>
+    </div>
+    <p class="pt-8 text-sm text-center leading-relaxed">Robo Friends Tech P.S.A. · Wrocław, Poland · KRS 0001198339 · NIP 8993037862 · REGON 542936437 · © <span id="footer-year"></span> Robo Friends Tech P.S.A.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
