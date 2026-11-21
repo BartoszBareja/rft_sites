@@ -1,4 +1,4 @@
-// RoboFriend — wariant "warm-hybrid"
+// RoboFriend: wariant "warm-hybrid"
 
 document.addEventListener('DOMContentLoaded', () => {
   // FAQ accordion
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Technologia — kliknięcie w dowolne miejsce kafelka rozwija/zwija TEN kafelek.
+  // Technologia: kliknięcie w dowolne miejsce kafelka rozwija/zwija TEN kafelek.
   // Wysokość wszystkich kafelków jest wspólna (styles.css: .tech-grid), więc rozwinięcie
   // kolejnego kafelka nie wydłuża strony, jeśli jego treść mieści się w już zajętym miejscu.
   document.querySelectorAll('.tech-card').forEach((card) => {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Tab navigation — buttons swap the visible content panel, no page reload
+  // Tab navigation: buttons swap the visible content panel, no page reload
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
   const panelIds = Array.from(tabPanels).map((panel) => panel.id);
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const initialId = location.hash.slice(1);
   activateTab(panelIds.includes(initialId) ? initialId : panelIds[0]);
 
-  // Kontakt form — opens the visitor's mail client with a pre-filled message
+  // Kontakt form: opens the visitor's mail client with a pre-filled message
   const kontaktForm = document.getElementById('kontakt-form');
   if (kontaktForm) {
     kontaktForm.addEventListener('submit', (e) => {
@@ -93,14 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Formularze rezerwacji i partnerski (.site-form) — lokalnie na stronie, bez Google Forms / Tally.
+  // Formularze rezerwacji i partnerski (.site-form): lokalnie na stronie, bez Google Forms / Tally.
   // Strona jest statyczna (bez serwera), więc zgłoszenie trafia do programu pocztowego
   // odwiedzającego jako gotowa wiadomość. Docelowo (WordPress) podmienić sendSiteForm()
   // na wysyłkę do formularza po stronie serwera.
   const SITE_FORM_EMAIL = 'krystian.skrzypalik@robofriendstech.pl';
 
   const sendSiteForm = (formName, lines) => {
-    const subject = encodeURIComponent(`${formName} — zgłoszenie ze strony`);
+    const subject = encodeURIComponent(`${formName}: zgłoszenie ze strony`);
     const body = encodeURIComponent(lines.join('\n'));
     window.location.href = `mailto:${SITE_FORM_EMAIL}?subject=${subject}&body=${body}`;
   };
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // „Przejdź do formularza ↓” — płynne przewinięcie bez zmiany adresu (#) w pasku
+  // „Przejdź do formularza ↓”: płynne przewinięcie bez zmiany adresu (#) w pasku
   document.querySelectorAll('.form-jump').forEach((link) => {
     link.addEventListener('click', (e) => {
       const target = document.querySelector(link.getAttribute('href'));
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Footer copyright year — always current, no manual updates needed
+  // Footer copyright year: always current, no manual updates needed
   const footerYear = document.getElementById('footer-year');
   if (footerYear) {
     footerYear.textContent = new Date().getFullYear();
