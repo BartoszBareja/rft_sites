@@ -446,6 +446,17 @@ button:focus-visible {
   padding: 0.5rem 0.25rem;
   text-decoration: none;
 }
+/* Strona główna: siatka 6 kolumn na komputerze; zwykłe kafelki po 2 (3 w rzędzie),
+   ostatni rząd (Zarezerwuj + Kontakt) po 3, czyli pół szerokości każdy */
+@media (min-width: 1024px) {
+  .home-cards > .icon-card {
+    grid-column: span 2;
+  }
+  .home-cards > .icon-card.home-wide {
+    grid-column: span 3;
+  }
+}
+
 /* Inwestycje: karty z wyśrodkowanym tekstem (także lista z ptaszkami) */
 .investor-cards .check-list li {
   justify-content: center;
