@@ -57,18 +57,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Kotwica wewnątrz zakładki (np. #dla-inwestorow w Partnerach): zwraca id zakładki nadrzędnej
+  const panelOf = (id) => {
+    if (panelIds.includes(id)) return id;
+    const el = id && document.getElementById(id);
+    const panel = el && el.closest('.tab-panel');
+    return panel ? panel.id : null;
+  };
+
+  const goTo = (id) => {
+    const panelId = panelOf(id);
+    if (!panelId) return false;
+    activateTab(panelId);
+    if (panelId !== id) {
+      // po pokazaniu zakładki przewijamy do podsekcji
+      requestAnimationFrame(() => document.getElementById(id).scrollIntoView({ block: 'start' }));
+    }
+    return true;
+  };
+
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const id = link.getAttribute('href').slice(1);
-    if (!panelIds.includes(id)) return;
-    link.addEventListener('click', () => activateTab(id));
+    if (!panelOf(id) || link.classList.contains('form-jump')) return;
+    link.addEventListener('click', () => goTo(id));
   });
 
   window.addEventListener('hashchange', () => {
-    activateTab(location.hash.slice(1));
+    goTo(location.hash.slice(1));
   });
 
-  const initialId = location.hash.slice(1);
-  activateTab(panelIds.includes(initialId) ? initialId : panelIds[0]);
+  if (!goTo(location.hash.slice(1))) activateTab(panelIds[0]);
 
   // Kontakt form: opens the visitor's mail client with a pre-filled message
   const kontaktForm = document.getElementById('kontakt-form');
@@ -89,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bodyLines.push(message);
       const body = encodeURIComponent(bodyLines.join('\n'));
 
-      window.location.href = `mailto:krystian.skrzypalik@robofriendstech.pl?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:kontakt@robofriendstech.pl?subject=${subject}&body=${body}`;
     });
   }
 
@@ -97,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Strona jest statyczna (bez serwera), więc zgłoszenie trafia do programu pocztowego
   // odwiedzającego jako gotowa wiadomość. Docelowo (WordPress) podmienić sendSiteForm()
   // na wysyłkę do formularza po stronie serwera.
-  const SITE_FORM_EMAIL = 'krystian.skrzypalik@robofriendstech.pl';
+  const SITE_FORM_EMAIL = 'kontakt@robofriendstech.pl';
 
   const sendSiteForm = (formName, lines) => {
     const subject = encodeURIComponent(`${formName}: zgłoszenie ze strony`);

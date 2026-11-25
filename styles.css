@@ -278,6 +278,14 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
 }
+/* Partnerzy: podsekcje „Dla inwestorów” i „Dla partnerów” pod kartami partnerów */
+.partner-subsection {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid #E4D9C4;
+  scroll-margin-top: 11rem;
+}
+
 .partner-link {
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
