@@ -555,6 +555,28 @@ textarea.contact-field {
   text-decoration-color: #fff;
 }
 
+.footer-social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.footer-social a:hover {
+  background: #FBF7F0;
+  border-color: #FBF7F0;
+  color: #2B2418;
+}
+
 /* Dokumenty prawne (polityka prywatności / cookies) */
 .legal-doc {
   max-width: 52rem;
@@ -683,6 +705,9 @@ mark.todo {
   height: 1.1rem;
   margin-top: 0.15rem;
   accent-color: #2C4C6B;
+}
+.other-field[hidden] {
+  display: none;
 }
 .form-inline-field {
   flex: 1;

@@ -47,7 +47,7 @@
     }
   }
 </script>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=19537e04">
 </head>
 <body class="font-body bg-cream text-ink antialiased">
 
@@ -543,7 +543,7 @@
 
       <div class="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
         <div class="md:col-span-3">
-          <p class="text-lg leading-relaxed text-ink/75 mb-6">Szukamy firm z sektora opieki domowej, które chcą zaoferować podopiecznym nowoczesne wsparcie technologiczne. Zostaw dane, a odezwiemy się w ciągu kilku dni roboczych. Wypełnienie zajmie około 2 minut.</p>
+          <p class="text-lg leading-relaxed text-ink/75 mb-6">Szukamy partnerów z sektora opieki i zdrowia: firm opiekuńczych, gmin i MOPS, domów seniora, podmiotów medycznych i ubezpieczycieli, którzy chcą zaoferować podopiecznym nowoczesne wsparcie technologiczne. Zostaw dane, a odezwiemy się w ciągu kilku dni roboczych. Wypełnienie zajmie około 2 minut.</p>
           <ul class="check-list mb-8">
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Nowa usługa i źródło przychodu</span></li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-ink/75">Wsparcie opiekunów między wizytami</span></li>
@@ -576,14 +576,6 @@
             <label for="par-www" class="form-label">Strona www</label>
             <input id="par-www" name="Strona www" type="url" class="contact-field" placeholder="https://">
           </div>
-          <div>
-            <label for="par-city" class="form-label">Siedziba (miasto)</label>
-            <input id="par-city" name="Siedziba" type="text" class="contact-field">
-          </div>
-          <div>
-            <label for="par-area" class="form-label">Obszar działania (województwa)</label>
-            <input id="par-area" name="Obszar działania" type="text" class="contact-field" placeholder="np. dolnośląskie, opolskie">
-          </div>
         </div>
 
         <p class="form-section">Osoba kontaktowa</p>
@@ -606,21 +598,68 @@
           </div>
         </div>
 
-        <p class="form-section">Współpraca</p>
-        <fieldset>
-          <legend class="form-label">Rodzaj usług</legend>
-          <div class="grid sm:grid-cols-2 gap-2 mt-2">
-            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Opieka domowa (prywatna)"> Opieka domowa (prywatna)</label>
-            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Usługi gminne / MOPS"> Usługi gminne / MOPS</label>
-            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Dom opieki / DPS"> Dom opieki / DPS</label>
-            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Rehabilitacja"> Rehabilitacja</label>
-            <label class="form-choice"><input type="checkbox" name="Rodzaj usług" value="Inne"> Inne</label>
+        <p class="form-section">O organizacji</p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="select-other">
+            <label for="par-type" class="form-label">Typ organizacji</label>
+            <select id="par-type" name="Typ organizacji" class="contact-field" data-other="Inne">
+              <option value="">Wybierz…</option>
+              <option>Firma opiekuńcza / opieka domowa</option>
+              <option>Gmina / MOPS / OPS</option>
+              <option>Dom seniora / DPS</option>
+              <option>Podmiot medyczny (przychodnia, szpital, rehabilitacja)</option>
+              <option>Ubezpieczyciel</option>
+              <option>Operator teleopieki</option>
+              <option>Inne</option>
+            </select>
+            <input type="text" name="Typ organizacji – inne" class="contact-field mt-2 other-field" placeholder="Wpisz typ organizacji" aria-label="Typ organizacji: Wpisz typ organizacji" hidden>
           </div>
-        </fieldset>
-        <div class="grid sm:grid-cols-3 gap-5 mt-5">
           <div>
-            <label for="par-scale" class="form-label">Skala (liczba podopiecznych)</label>
-            <select id="par-scale" name="Skala" class="contact-field">
+            <label for="par-city" class="form-label">Siedziba firmy (miasto) <span class="req">*</span></label>
+            <input id="par-city" name="Siedziba firmy" type="text" class="contact-field" autocomplete="address-level2" required>
+          </div>
+          <div class="select-other">
+            <label for="par-area" class="form-label">Obszar działania</label>
+            <select id="par-area" name="Obszar działania" class="contact-field" data-other="Kilka województw">
+              <option value="">Wybierz…</option>
+              <option>Cała Polska</option>
+              <option>dolnośląskie</option>
+              <option>kujawsko-pomorskie</option>
+              <option>lubelskie</option>
+              <option>lubuskie</option>
+              <option>łódzkie</option>
+              <option>małopolskie</option>
+              <option>mazowieckie</option>
+              <option>opolskie</option>
+              <option>podkarpackie</option>
+              <option>podlaskie</option>
+              <option>pomorskie</option>
+              <option>śląskie</option>
+              <option>świętokrzyskie</option>
+              <option>warmińsko-mazurskie</option>
+              <option>wielkopolskie</option>
+              <option>zachodniopomorskie</option>
+              <option>Kilka województw</option>
+              <option>Poza Polską</option>
+            </select>
+            <input type="text" name="Obszar działania – szczegóły" class="contact-field mt-2 other-field" placeholder="Wpisz województwa, np. dolnośląskie, opolskie" aria-label="Obszar działania: Wpisz województwa, np. dolnośląskie, opolskie" hidden>
+          </div>
+          <div class="select-other">
+            <label for="par-services" class="form-label">Rodzaj świadczonych usług</label>
+            <select id="par-services" name="Rodzaj świadczonych usług" class="contact-field" data-other="Inne">
+              <option value="">Wybierz…</option>
+              <option>Opieka domowa (prywatna)</option>
+              <option>Usługi opiekuńcze na zlecenie gminy / MOPS</option>
+              <option>Teleopieka</option>
+              <option>Dom seniora / DPS</option>
+              <option>Dzienny dom pobytu / klub seniora</option>
+              <option>Inne</option>
+            </select>
+            <input type="text" name="Rodzaj świadczonych usług – inne" class="contact-field mt-2 other-field" placeholder="Wpisz rodzaj usług" aria-label="Rodzaj świadczonych usług: Wpisz rodzaj usług" hidden>
+          </div>
+          <div class="select-other">
+            <label for="par-clients" class="form-label">Liczba podopiecznych</label>
+            <select id="par-clients" name="Liczba podopiecznych" class="contact-field">
               <option value="">Wybierz…</option>
               <option>do 20</option>
               <option>21–100</option>
@@ -628,35 +667,58 @@
               <option>powyżej 500</option>
             </select>
           </div>
-          <div>
-            <label for="par-form" class="form-label">Forma współpracy</label>
-            <select id="par-form" name="Forma współpracy" class="contact-field">
+          <div class="select-other">
+            <label for="par-carers" class="form-label">Liczba opiekunów</label>
+            <select id="par-carers" name="Liczba opiekunów" class="contact-field">
               <option value="">Wybierz…</option>
-              <option>Pilotaż / testy</option>
-              <option>Oferowanie RoboFriend podopiecznym</option>
-              <option>Partnerstwo strategiczne / wsparcie projektu</option>
-              <option>Inna</option>
+              <option>do 10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>powyżej 200</option>
             </select>
           </div>
           <div>
-            <label for="par-when" class="form-label">Planowany termin</label>
-            <select id="par-when" name="Termin współpracy" class="contact-field">
-              <option value="">Wybierz…</option>
-              <option>Jak najszybciej</option>
-              <option>W ciągu 3 miesięcy</option>
-              <option>W ciągu 6 miesięcy</option>
-              <option>Później / rozpoznanie</option>
-            </select>
+            <label for="par-branches" class="form-label">Liczba oddziałów lub placówek</label>
+            <input id="par-branches" name="Liczba oddziałów lub placówek" type="number" min="0" inputmode="numeric" class="contact-field">
           </div>
-        </div>
-        <div class="mt-5">
-          <label for="par-msg" class="form-label">Dodatkowe informacje</label>
-          <textarea id="par-msg" name="Wiadomość" rows="4" class="contact-field"></textarea>
         </div>
 
-        <label class="form-choice form-consent mt-6">
-          <input type="checkbox" name="Zgoda RODO" value="Wyrażam zgodę" required>
-          <span>Wyrażam zgodę na przetwarzanie podanych danych przez Robo Friends Tech P.S.A. w celu kontaktu w sprawie współpracy. Zgoda jest dobrowolna i mogę ją wycofać w dowolnym momencie. <span class="req">*</span></span>
+        <p class="form-section">Współpraca</p>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="select-other">
+            <label for="par-form" class="form-label">Jaka forma współpracy Cię interesuje?</label>
+            <select id="par-form" name="Forma współpracy" class="contact-field" data-other="Inne">
+              <option value="">Wybierz…</option>
+              <option>Pilotaż u naszych podopiecznych</option>
+              <option>Włączenie RoboFrienda do naszych usług</option>
+              <option>Sprzedaż / dystrybucja</option>
+              <option>Na razie rozpoznanie</option>
+              <option>Inne</option>
+            </select>
+            <input type="text" name="Forma współpracy – inne" class="contact-field mt-2 other-field" placeholder="Wpisz formę współpracy" aria-label="Jaka forma współpracy Cię interesuje?: Wpisz formę współpracy" hidden>
+          </div>
+          <div class="select-other">
+            <label for="par-when" class="form-label">Proponowany termin rozpoczęcia współpracy</label>
+            <select id="par-when" name="Proponowany termin" class="contact-field">
+              <option value="">Wybierz…</option>
+              <option>do 3 miesięcy</option>
+              <option>3–6 miesięcy</option>
+              <option>później</option>
+              <option>trudno powiedzieć</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label for="par-msg" class="form-label">Wiadomość</label>
+          <textarea id="par-msg" name="Wiadomość" rows="4" class="contact-field" placeholder="Opisz krótko, czego oczekujesz od współpracy"></textarea>
+        </div>
+
+        <p class="form-section">Informacja o przetwarzaniu danych</p>
+        <p class="text-sm text-ink/60 leading-relaxed">Administratorem Twoich danych jest Robo Friends Tech P.S.A., ul. Skarbowców 82D/3A, 53-025 Wrocław. Przetwarzamy je, aby odpowiedzieć na zgłoszenie i rozmawiać o współpracy (art. 6 ust. 1 lit. f RODO). Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu oraz skargi do Prezesa UODO. Szczegóły: <a href="#polityka-prywatnosci" class="text-blue font-semibold underline">Polityka prywatności</a>.</p>
+        <label class="form-choice form-consent mt-4">
+          <input type="checkbox" name="Informacja o przetwarzaniu danych" value="Zapoznałem/am się" required>
+          <span>Zapoznałem/am się z informacją o przetwarzaniu danych osobowych. <span class="req">*</span></span>
         </label>
 
         <p class="form-error" role="alert" hidden>Uzupełnij wymagane pola oznaczone gwiazdką.</p>
@@ -991,7 +1053,7 @@
           <a href="#formularz-rezerwacji" class="btn-solid form-jump">Przejdź do formularza ↓</a>
         </div>
         <figure class="md:col-span-2 split-photo aspect-[4/3] md:aspect-auto md:h-72">
-          <img src="media/Z20-zarezerwuj-robot.jpg" alt="RoboFriend z ekranem Robo Friends Tech – We make your future safe" loading="lazy" class="object-[center_38%]">
+          <img src="media/Z20-zarezerwuj-robot-dom.jpg" alt="RoboFriend w domu, siedzący na legowisku, z ekranem Robo Friends Tech" loading="lazy" class="object-[center_12%]">
         </figure>
       </div>
 
@@ -1016,16 +1078,19 @@
           </div>
         </div>
 
-        <fieldset class="mt-6">
-          <legend class="form-label">W jakim celu rezerwujesz RoboFriend? <span class="req">*</span></legend>
-          <div class="grid gap-2 mt-2">
-            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Kupuję dla siebie (jestem seniorem / seniorką)" required> Kupuję dla siebie (jestem seniorem / seniorką)</label>
-            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Kupuję dla członka rodziny (np. rodzica, dziadka)"> Kupuję dla członka rodziny (np. rodzica, dziadka)</label>
-            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Jestem przedstawicielem instytucji (np. dom opieki, fundacja)"> Jestem przedstawicielem instytucji (np. dom opieki, fundacja)</label>
-            <label class="form-choice"><input type="radio" name="Cel rezerwacji" value="Inne"> Inne:
-              <input type="text" name="Cel rezerwacji – inne" class="contact-field form-inline-field" aria-label="Inny cel rezerwacji"></label>
+        <div class="mt-6">
+          <div class="select-other">
+            <label for="rez-goal" class="form-label">W jakim celu rezerwujesz RoboFriend? <span class="req">*</span></label>
+            <select id="rez-goal" name="Cel rezerwacji" class="contact-field" data-other="Inne" required>
+              <option value="">Wybierz…</option>
+              <option>Kupuję dla siebie (jestem seniorem / seniorką)</option>
+              <option>Kupuję dla członka rodziny (np. rodzica, dziadka)</option>
+              <option>Jestem przedstawicielem instytucji (np. dom opieki, fundacja)</option>
+              <option>Inne</option>
+            </select>
+            <input type="text" name="Cel rezerwacji – inne" class="contact-field mt-2 other-field" placeholder="Wpisz cel rezerwacji" aria-label="W jakim celu rezerwujesz RoboFriend?: Wpisz cel rezerwacji" hidden>
           </div>
-        </fieldset>
+        </div>
 
         <label class="form-choice form-consent mt-6">
           <input type="checkbox" name="Zgoda RODO" value="Wyrażam zgodę" required>
@@ -1156,6 +1221,12 @@
           <p class="font-display text-lg font-bold text-white">RoboFriend</p>
         </div>
         <p class="text-white/80">We make your future safe</p>
+        <!-- SOCIAL MEDIA: SPRAWDZIĆ adresy profili (Instagram „robofriendstech” z roll-upu; Facebook i LinkedIn do potwierdzenia) -->
+        <ul class="footer-social" aria-label="Robo Friends Tech w mediach społecznościowych">
+          <li><a href="https://www.facebook.com/robofriendstech" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/robofriendstech" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.8H3.7V20h3.2V8.8zM5.3 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.3 13.6c0-3-1.6-4.9-4.3-4.9-1.6 0-2.6.9-3 1.6V8.8H9.8V20H13v-5.9c0-1.6.6-2.6 2-2.6s1.9 1 1.9 2.6V20h3.2l.2-6.4z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/robofriendstech/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"/></svg></a></li>
+        </ul>
       </div>
       <nav aria-label="Na skróty">
         <p class="footer-heading">Na skróty</p>
@@ -1184,6 +1255,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=766c673a"></script>
 </body>
 </html>

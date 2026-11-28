@@ -123,6 +123,28 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `mailto:${SITE_FORM_EMAIL}?subject=${subject}&body=${body}`;
   };
 
+  // Listy rozwijane z opcją „Inne” (data-other="Inne"): po jej wybraniu pokazuje się pole tekstowe.
+  // Jeśli lista jest wymagana, pole tekstowe też staje się wymagane.
+  const syncOtherField = (select) => {
+    const other = select.parentElement.querySelector('.other-field');
+    if (!other) return;
+    const show = select.value === select.dataset.other;
+    other.hidden = !show;
+    other.required = show && select.required;
+    if (!show) {
+      other.value = '';
+      other.classList.remove('is-invalid');
+    }
+  };
+  document.querySelectorAll('select[data-other]').forEach((select) => {
+    select.addEventListener('change', () => {
+      syncOtherField(select);
+      const other = select.parentElement.querySelector('.other-field');
+      if (other && !other.hidden) other.focus();
+    });
+    syncOtherField(select);
+  });
+
   document.querySelectorAll('.site-form').forEach((form) => {
     const errorBox = form.querySelector('.form-error');
     const thanksBox = form.querySelector('.form-thanks');
@@ -164,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sendSiteForm(form.dataset.formName, lines);
       thanksBox.hidden = false;
       form.reset();
+      form.querySelectorAll('select[data-other]').forEach(syncOtherField);
     });
   });
 
